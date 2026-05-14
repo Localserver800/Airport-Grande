@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airport Grande Luxury Lodge &amp; Apartments | Serviced Apartments in Accra – Short &amp; Long Stay</title>
+    <meta name="description" content="Boutique fully furnished serviced apartments &amp; rooms in Airport Residential Area, Accra. 8 spacious 2-bedroom apartments + 6 rooms near Kotoka International Airport. Free Wi-Fi, parking, breakfast service, 24-hour reception. Book now for short or long stays.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.25) 100%);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .image-hover {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .image-hover:hover {
+            transform: scale(1.08);
+        }
+        .amenity-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .amenity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        #site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+        }
+        #navbar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .nav-link {
+            color: #111827;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: #d97706;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.3);
+        }
+        .cta-primary:hover {
+            background: linear-gradient(135deg, #b45309, #92400e);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -5px rgba(217, 119, 6, 0.4);
+        }
+        
+        .nav-link.active {
+            color: #d97706;
+            font-weight: 600;
+        }
+
+        #mobile-menu {
+            transition: opacity 0.2s ease;
+        }
+        #mobile-menu.hidden {
+            display: none;
+        }
+
+        #floating-cta {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 60;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .urgency-badge {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
+        }
+    </style>
+</head>
+<body class="smooth-scroll bg-gray-50">
+
+    <header id="site-header">
+        <nav id="navbar" role="navigation" aria-label="Main navigation">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+
+                    <div class="flex-shrink-0">
+                        <a href="index.html" aria-label="Airport Grande Luxury Lodge &amp; Apartments">
+                            <span class="text-2xl md:text-3xl font-bold text-amber-700 tracking-tight">Airport Grande</span>
+                        </a>
+                    </div>
+
+                    <div class="hidden md:flex items-center gap-x-7 text-sm font-medium">
+                        <a href="index.html" class="nav-link active">Home</a>
+                        <a href="rooms.html" class="nav-link">Rooms</a>
+                        <a href="amenities.html" class="nav-link">Amenities</a>
+                        <a href="photos.html" class="nav-link">Gallery</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
+                        <a href="login.html" class="nav-link">Sign In</a>
+
+                        <a href="booking.html"
+                           class="cta-primary text-white px-7 py-3.5 rounded-3xl font-semibold text-sm tracking-wide shadow-lg hover:shadow-xl transition-all ml-2">
+                            CHECK AVAILABILITY
+                        </a>
+                    </div>
+
+                    <div class="md:hidden flex items-center gap-3">
+                        <a href="booking.html"
+                           class="cta-primary text-white px-4 py-2.5 rounded-2xl font-semibold text-xs tracking-wide shadow-md transition-all">
+                            Check Availability
+                        </a>
+                        <button id="mobile-menu-btn" class="text-gray-800 hover:text-amber-600 p-1.5" aria-label="Open menu" aria-expanded="false">
+                            <i data-lucide="menu" id="hamburger-icon" class="w-6 h-6"></i>
+                            <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden bg-white/97 backdrop-blur-xl border-t border-gray-100 shadow-2xl">
+                <div class="px-6 pt-5 pb-8 flex flex-col gap-1 text-base font-medium">
+                    <a href="index.html"     class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Home</a>
+                    <a href="rooms.html"     class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Rooms</a>
+                    <a href="amenities.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Amenities</a>
+                    <a href="photos.html"    class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Gallery</a>
+                    <a href="contact.html"   class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Contact</a>
+                    <a href="login.html"     class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Sign In</a>
+
+                    <a href="booking.html"
+                       class="mt-5 block w-full text-center cta-primary text-white py-4 rounded-3xl font-semibold text-base tracking-wide shadow-lg">
+                        CHECK AVAILABILITY NOW
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <a href="booking.html" id="floating-cta"
+        class="hidden md:flex items-center gap-3 bg-gradient-to-r from-amber-600 to-amber-700 text-white px-8 py-4 rounded-3xl font-semibold shadow-2xl hover:shadow-3xl transition-all fixed bottom-6 right-6 z-60 text-base">
+        <span>Check Availability</span>
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+    </a>
+
+    <section class="relative h-screen min-h-[640px] flex items-center pt-20">
+        <div class="absolute inset-0">
+            <img src="1.jpg" 
+                 alt="Airport Grande Luxury Lodge &amp; Apartments exterior in Accra"
+                 class="w-full h-full object-cover">
+            <div class="hero-gradient absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-white/90 text-amber-700 px-5 py-2 rounded-3xl text-sm font-semibold mb-6 urgency-badge">
+                    <i data-lucide="zap" class="w-4 h-4"></i>
+                    2 APARTMENTS AVAILABLE NOW – SHORT &amp; LONG STAY
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white mb-6">
+                    Your Home Away From Home<br>at Airport Grande
+                </h1>
+                <p class="text-lg sm:text-xl text-white/90 mb-10">
+                    Fully furnished serviced apartments &amp; rooms in Airport Residential Area, Accra.<br>
+                    <span class="font-semibold text-amber-300">Just 10 minutes from Kotoka International Airport.</span>
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="booking.html" 
+                       class="cta-primary flex-1 sm:flex-none text-center text-white text-base sm:text-lg font-semibold px-10 py-6 rounded-3xl shadow-xl hover:scale-[1.03] transition-all">
+                        CHECK AVAILABILITY
+                    </a>
+                    <a href="contact.html" 
+                       class="flex-1 sm:flex-none border-2 border-white/80 hover:border-white text-white text-base sm:text-lg font-semibold px-10 py-6 rounded-3xl transition-all text-center">
+                        Schedule a Visit
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce">
+            <i data-lucide="chevron-down" class="w-9 h-9"></i>
+        </div>
+    </section>
+
+    <section class="bg-white py-12 border-b">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="bg-gray-50 rounded-3xl p-8 md:p-10 shadow-inner">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">See What’s Available Right Now</h2>
+                    <p class="text-gray-600 mt-3 text-base">Takes less than 30 seconds • 8 apartments + 6 rooms</p>
+                </div>
+                
+                <form id="quick-form" class="grid md:grid-cols-3 gap-6" onsubmit="handleFormSubmit(event)">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Arrival Date</label>
+                        <input type="date" id="movein" class="w-full px-5 py-4 rounded-2xl border border-gray-300 focus:outline-none focus:border-amber-600 text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Stay Type</label>
+                        <select id="type" class="w-full px-5 py-4 rounded-2xl border border-gray-300 focus:outline-none focus:border-amber-600 text-base">
+                            <option value="">Any</option>
+                            <option value="Apartment">2-Bedroom Apartment</option>
+                            <option value="Room">Standard Room</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit"
+                                class="w-full cta-primary text-white font-semibold py-4 rounded-3xl text-base sm:text-lg">
+                            CHECK AVAILABILITY
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <img src="1.jpg" 
+                         alt="Airport Grande Luxury Lodge &amp; Apartments exterior"
+                         class="rounded-3xl shadow-2xl w-full image-hover">
+                </div>
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-8">
+                        Where Comfort, Style &amp; Convenience Meet
+                    </h2>
+                    <p class="text-base sm:text-lg leading-relaxed text-gray-600 mb-8">
+                        8 fully furnished 2-bedroom serviced apartments + 6 rooms in the quiet Airport Residential Area. 
+                        Spacious layouts, warm colours, and a true “home away from home” feel. 
+                        Perfect for business travelers, families, or long stays.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a href="booking.html" class="cta-primary text-white px-10 py-5 rounded-3xl font-semibold text-base sm:text-lg inline-flex items-center gap-3">
+                            SEE AVAILABLE UNITS
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold">Live the Look</h2>
+                    <p class="text-gray-600 mt-3 text-base sm:text-lg">Fully furnished spaces that feel like home</p>
+                </div>
+                <a href="photos.html" class="text-amber-600 font-medium hover:text-amber-700 flex items-center gap-2 text-base">
+                    View Full Gallery <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group relative overflow-hidden rounded-3xl shadow-xl aspect-video">
+                    <img src="images/airport-grande-luxury.jpg" alt="Spacious living area" class="w-full h-full object-cover image-hover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent h-1/2"></div>
+                    <div class="absolute bottom-6 left-6 text-white text-xl sm:text-2xl font-semibold">Open Living Spaces</div>
+                </div>
+                <div class="group relative overflow-hidden rounded-3xl shadow-xl aspect-video">
+                    <img src="images/12509099_1005452406162818_7516281827116219428_n-640x426.jpg" alt="Modern bedroom" class="w-full h-full object-cover image-hover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent h-1/2"></div>
+                    <div class="absolute bottom-6 left-6 text-white text-xl sm:text-2xl font-semibold">Spacious Bedrooms</div>
+                </div>
+                <div class="group relative overflow-hidden rounded-3xl shadow-xl aspect-video">
+                    <img src="images/kitchen.jpg" alt="Fully equipped kitchen" class="w-full h-full object-cover image-hover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent h-1/2"></div>
+                    <div class="absolute bottom-6 left-6 text-white text-xl sm:text-2xl font-semibold">Modern Kitchens</div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="booking.html" class="cta-primary inline-flex items-center gap-4 text-white px-12 py-6 rounded-3xl text-base sm:text-lg font-semibold">
+                    FIND YOUR PERFECT UNIT
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Home-Like Comfort</h2>
+                <p class="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+                    Everything you need for a restful and productive stay.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="wifi" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Free High-Speed Wi-Fi</h3>
+                    <p class="text-base sm:text-lg leading-relaxed text-gray-600">Strong &amp; reliable throughout</p>
+                </div>
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="car" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Free Parking</h3>
+                    <p class="text-base sm:text-lg leading-relaxed text-gray-600">On-site secure parking</p>
+                </div>
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="shield" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">24-Hour Security</h3>
+                    <p class="text-base sm:text-lg leading-relaxed text-gray-600">Plus backup generator</p>
+                </div>
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="utensils" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3">Breakfast Service</h3>
+                    <p class="text-base sm:text-lg leading-relaxed text-gray-600">In-room delivery available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-28 bg-gradient-to-br from-gray-900 to-black text-white relative overflow-hidden text-center">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-none mb-8">
+                Your Perfect Stay in Accra Awaits
+            </h2>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="booking.html" class="cta-primary text-white text-base sm:text-lg font-semibold px-16 py-8 rounded-3xl inline-flex items-center justify-center gap-4">
+                    BOOK YOUR STAY NOW
+                    <i data-lucide="arrow-right" class="w-7 h-7"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-800 pt-8 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2026 Airport Grande Luxury Lodge &amp; Apartments. All Rights Reserved.</p>
+                <p>137 Aviation Road, Airport Residential Area, Accra, Ghana</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden', !isOpen);
+            closeIcon.classList.toggle('hidden', isOpen);
+        });
+
+        // FORM LOGIC: Send data to booking.html
+        function goToBooking() {
+            const date = document.getElementById('home-date').value;
+            const type = document.getElementById('home-type').value;
+            
+            // Send them to the booking page with the data in the URL!
+            window.location.href = `booking.html?checkin=${date}&type=${type}`;
+        }
+
+        // Scroll Logic for Floating Button
+        window.addEventListener('scroll', () => {
+            const floating = document.getElementById('floating-cta');
+            if (window.scrollY > 600) {
+                floating.classList.remove('hidden');
+                floating.classList.add('flex');
+            } else {
+                floating.classList.add('hidden');
+                floating.classList.remove('flex');
+            }
+        });
+    </script>
+</body>
+</html>

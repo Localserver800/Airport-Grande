@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Room | Airport Grande Luxury Lodge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; }
+    .cta-primary { background: linear-gradient(135deg, #d97706, #b45309); }
+    .cta-primary:hover { background: linear-gradient(135deg, #b45309, #92400e); }
+    .input-field {
+      width: 100%; padding: 1rem 1.25rem; border-radius: 1rem;
+      border: 1px solid #e5e7eb; font-size: 1rem;
+      transition: border-color 0.2s; background: white;
+    }
+    .input-field:focus { outline: none; border-color: #f59e0b; }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- NAVBAR -->
+  <nav class="bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-sm fixed top-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-20">
+      <a href="index.html" class="text-2xl font-bold text-amber-700" style="font-family:'Playfair Display',serif;">Airport Grande</a>
+      <div class="flex items-center gap-5">
+        <a href="client-dashboard.html" class="text-sm text-gray-600 hover:text-amber-600 flex items-center gap-2 transition-colors">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i> My Dashboard
+        </a>
+        <button onclick="handleLogout()"
+          class="text-sm text-gray-500 hover:text-red-500 flex items-center gap-1.5 transition-colors">
+          <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Auth guard notice (shown if not logged in) -->
+  <div id="auth-guard" class="hidden pt-28 pb-20 px-4 max-w-md mx-auto text-center">
+    <div class="bg-white rounded-3xl shadow-xl p-10">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 mb-5">
+        <i data-lucide="lock" class="w-7 h-7 text-amber-600"></i>
+      </div>
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Login Required</h2>
+      <p class="text-gray-500 mb-6">You need to be signed in to make a booking.</p>
+      <a href="login.html"
+        class="cta-primary inline-flex items-center gap-2 text-white font-semibold px-8 py-4 rounded-3xl text-base transition-all hover:scale-[1.02]">
+        Sign In <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </div>
+
+  <main id="booking-content" class="pt-28 pb-20 px-4 max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900">Book Your Stay</h1>
+      <p class="text-gray-500 mt-3">Fill in your details below. Availability is checked in real time.</p>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+
+      <!-- Step indicator -->
+      <div class="flex items-center gap-3 mb-10 text-sm font-medium text-gray-400 overflow-x-auto">
+        <span class="text-amber-600 font-semibold whitespace-nowrap">1. Choose Room & Dates</span>
+        <span>→</span>
+        <span class="whitespace-nowrap">2. Guests</span>
+        <span>→</span>
+        <span class="whitespace-nowrap">3. Confirmation</span>
+      </div>
+
+      <form id="booking-form" class="space-y-6" onsubmit="handleBooking(event)">
+
+        <!-- Room Type -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Room / Apartment *</label>
+          <select id="roomId" required class="input-field">
+            <option value="">-- Select a room --</option>
+            <optgroup label="2-Bedroom Apartments">
+              <option value="apt-1" data-label="Apartment 1 (2-Bedroom)">Apartment 1 – 2 Bedroom</option>
+              <option value="apt-2" data-label="Apartment 2 (2-Bedroom)">Apartment 2 – 2 Bedroom</option>
+              <option value="apt-3" data-label="Apartment 3 (2-Bedroom)">Apartment 3 – 2 Bedroom</option>
+              <option value="apt-4" data-label="Apartment 4 (2-Bedroom)">Apartment 4 – 2 Bedroom</option>
+              <option value="apt-5" data-label="Apartment 5 (2-Bedroom)">Apartment 5 – 2 Bedroom</option>
+              <option value="apt-6" data-label="Apartment 6 (2-Bedroom)">Apartment 6 – 2 Bedroom</option>
+              <option value="apt-7" data-label="Apartment 7 (2-Bedroom)">Apartment 7 – 2 Bedroom</option>
+              <option value="apt-8" data-label="Apartment 8 (2-Bedroom)">Apartment 8 – 2 Bedroom</option>
+            </optgroup>
+            <optgroup label="Standard Rooms">
+              <option value="room-1" data-label="Standard Room 1">Room 1 – Standard</option>
+              <option value="room-2" data-label="Standard Room 2">Room 2 – Standard</option>
+              <option value="room-3" data-label="Standard Room 3">Room 3 – Standard</option>
+              <option value="room-4" data-label="Standard Room 4">Room 4 – Standard</option>
+              <option value="room-5" data-label="Standard Room 5">Room 5 – Standard</option>
+              <option value="room-6" data-label="Standard Room 6">Room 6 – Standard</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Dates -->
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Check-In Date *</label>
+            <input type="date" id="checkIn" required class="input-field">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Check-Out Date *</label>
+            <input type="date" id="checkOut" required class="input-field">
+          </div>
+        </div>
+
+        <!-- Number of Guests -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Number of Guests *</label>
+          <select id="numGuests" required class="input-field">
+            <option value="">-- Select guests --</option>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5+ Guests (contact us)</option>
+          </select>
+          <p class="text-xs text-gray-400 mt-1.5">For groups of 5+, our team will confirm availability by phone.</p>
+        </div>
+
+        <hr class="border-gray-100">
+
+        <!-- Stay summary (dynamic) -->
+        <div id="stay-summary" class="hidden bg-amber-50 rounded-2xl px-6 py-4">
+          <p class="text-sm font-semibold text-amber-800 mb-1">Stay Summary</p>
+          <div id="summary-text" class="text-sm text-amber-700"></div>
+        </div>
+
+        <!-- Special Requests -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Special Requests <span class="font-normal text-gray-400">(optional)</span></label>
+          <textarea id="specialRequests" rows="3"
+            placeholder="Early check-in, dietary needs, accessibility requirements…"
+            class="input-field resize-none"></textarea>
+        </div>
+
+        <!-- Status Message -->
+        <div id="status-msg" class="hidden rounded-2xl px-6 py-4 text-base font-medium"></div>
+
+        <!-- Submit -->
+        <button type="submit" id="submit-btn"
+          class="cta-primary w-full text-white font-semibold py-5 rounded-3xl text-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-3">
+          <span id="btn-text">CONFIRM BOOKING</span>
+          <i data-lucide="arrow-right" class="w-5 h-5" id="btn-icon"></i>
+          <svg id="btn-spinner" class="hidden animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="white" stroke-width="4"/>
+            <path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8v8z"/>
+          </svg>
+        </button>
+
+        <p class="text-center text-xs text-gray-400">
+          By booking you agree to our cancellation policy. Need help?
+          Call <a href="tel:+233201351116" class="text-amber-600">+233 20 135 1116</a>
+        </p>
+
+      </form>
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    const token = localStorage.getItem('token');
+    const userStr = localStorage.getItem('user');
+    const user = userStr ? JSON.parse(userStr) : null;
+    const isLoggedIn = !!token && !!user;
+
+    if (!isLoggedIn) {
+      document.getElementById('auth-guard').classList.remove('hidden');
+      document.getElementById('booking-content').classList.add('hidden');
+    }
+
+    function handleLogout() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.href = 'login.html';
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('checkIn').min = today;
+    document.getElementById('checkOut').min = today;
+
+    document.getElementById('checkIn').addEventListener('change', updateSummary);
+    document.getElementById('checkOut').addEventListener('change', function() {
+      this.min = document.getElementById('checkIn').value;
+      updateSummary();
+    });
+    document.getElementById('roomId').addEventListener('change', updateSummary);
+    document.getElementById('numGuests').addEventListener('change', updateSummary);
+
+    function updateSummary() {
+      const checkIn  = document.getElementById('checkIn').value;
+      const checkOut = document.getElementById('checkOut').value;
+      const roomSel  = document.getElementById('roomId');
+      const roomLabel = roomSel.options[roomSel.selectedIndex]?.dataset?.label || '';
+      const guests   = document.getElementById('numGuests').value;
+      const summary  = document.getElementById('stay-summary');
+      const text     = document.getElementById('summary-text');
+
+      if (checkIn && checkOut && roomLabel && guests) {
+        const nights = Math.ceil((new Date(checkOut) - new Date(checkIn)) / (1000 * 60 * 60 * 24));
+        if (nights > 0) {
+          summary.classList.remove('hidden');
+          text.innerHTML = `<strong>${roomLabel}</strong> · ${nights} night${nights > 1 ? 's' : ''} · ${guests} guest${guests > 1 ? 's' : ''}`;
+        }
+      } else {
+        summary.classList.add('hidden');
+      }
+    }
+
+    const BACKEND_URL = ''; // Use relative path for same-origin
+    const PAYSTACK_PUBLIC_KEY = 'pk_test_065e13d9685e13d9685e13d9685e13d9685e13d9';
+
+    async function handleBooking(e) {
+      e.preventDefault();
+      const roomSelect = document.getElementById('roomId');
+      const roomId     = roomSelect.value;
+      const roomLabel  = roomSelect.options[roomSelect.selectedIndex].dataset.label;
+      const roomType   = roomLabel.includes('Apartment') ? 'Apartment' : 'Room';
+      const checkIn    = document.getElementById('checkIn').value;
+      const checkOut   = document.getElementById('checkOut').value;
+      const numGuests  = document.getElementById('numGuests').value;
+      const special    = document.getElementById('specialRequests').value.trim();
+
+      if (checkOut <= checkIn) {
+        showStatus('Check-out date must be after check-in date.', 'error');
+        return;
+      }
+
+      setLoading(true);
+      hideStatus();
+
+      try {
+        // 1. Check Availability First
+        const availRes = await fetch(`${BACKEND_URL}/api/check-availability?roomId=${roomId}&checkIn=${checkIn}&checkOut=${checkOut}`);
+        const availData = await availRes.json();
+
+        if (!availData.available) {
+          showStatus(availData.message || 'Room is not available for these dates.', 'error');
+          setLoading(false); 
+          return;
+        }
+
+        // 2. Ask backend for the secure price and reference
+        const initRes = await fetch(`${BACKEND_URL}/api/init-payment`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ roomId, roomType, checkIn, checkOut })
+        });
+        const initData = await initRes.json();
+
+        if (!initData.success) {
+           showStatus('Pricing error. Please try again.', 'error');
+           setLoading(false); 
+           return;
+        }
+
+        // 3. Initiate Paystack using the SERVER'S numbers
+        const handler = PaystackPop.setup({
+          key: PAYSTACK_PUBLIC_KEY,
+          email: user.email,
+          amount: initData.amountToCharge,
+          currency: 'GHS',
+          ref: initData.reference,
+          
+          callback: async function(response) {
+            // 4. Send reference back to server to verify and finalize booking
+            try {
+              const bookRes = await fetch(`${BACKEND_URL}/api/book`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                  name: user.name, 
+                  email: user.email, 
+                  phone: user.phone || 'Not provided', 
+                  checkIn, 
+                  checkOut, 
+                  roomId, 
+                  roomLabel, 
+                  specialRequests: special,
+                  userId: user.id,
+                  paymentRef: response.reference 
+                }),
+              });
+
+              const bookData = await bookRes.json();
+              if (bookData.success) {
+                showStatus(bookData.message, 'success');
+                setTimeout(() => {
+                  window.location.href = 'client-dashboard.html';
+                }, 4000);
+              } else {
+                showStatus(bookData.message, 'error');
+                setLoading(false);
+              }
+            } catch (err) {
+              console.error("Booking recording error:", err);
+              showStatus('Payment successful, but failed to record booking. Please contact us with your reference.', 'error');
+              setLoading(false);
+            }
+          },
+          onClose: function() {
+            setLoading(false);
+            showStatus('Payment cancelled. Your room has not been booked.', 'error');
+          }
+        });
+
+        handler.openIframe();
+
+      } catch (err) {
+        console.error("Connection error:", err);
+        showStatus('Could not connect to booking server. Please try again later.', 'error');
+        setLoading(false);
+      }
+    }
+
+    function setLoading(loading) {
+      document.getElementById('submit-btn').disabled = loading;
+      document.getElementById('btn-text').textContent = loading ? 'Checking availability…' : 'CONFIRM BOOKING';
+      document.getElementById('btn-icon').classList.toggle('hidden', loading);
+      document.getElementById('btn-spinner').classList.toggle('hidden', !loading);
+    }
+
+    function showStatus(msg, type) {
+      const el = document.getElementById('status-msg');
+      el.textContent = msg;
+      el.className = `rounded-2xl px-6 py-4 text-base font-medium ${
+        type === 'success'
+          ? 'bg-green-50 text-green-700 border border-green-200'
+          : 'bg-red-50 text-red-700 border border-red-200'
+      }`;
+      el.classList.remove('hidden');
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function hideStatus() {
+      document.getElementById('status-msg').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

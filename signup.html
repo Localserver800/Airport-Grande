@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | Airport Grande Luxury Lodge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; }
+    .cta-primary { background: linear-gradient(135deg, #d97706, #b45309); }
+    .cta-primary:hover { background: linear-gradient(135deg, #b45309, #92400e); }
+    .input-field {
+      width: 100%; padding: 1rem 1.25rem; border-radius: 1rem;
+      border: 1px solid #e5e7eb; font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+    .input-field:focus { outline: none; border-color: #f59e0b; }
+    .input-wrapper { position: relative; }
+    .input-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #9ca3af; pointer-events: none; }
+    .input-field.has-icon { padding-left: 2.75rem; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+  <!-- NAVBAR -->
+  <nav class="bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-sm fixed top-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-20">
+      <a href="index.html" class="text-2xl font-bold text-amber-700" style="font-family:'Playfair Display',serif;">Airport Grande</a>
+      <a href="index.html" class="text-sm text-gray-600 hover:text-amber-600 flex items-center gap-2 transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+      </a>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 px-4 max-w-lg mx-auto">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 mb-5">
+        <i data-lucide="user-plus" class="w-7 h-7 text-amber-600"></i>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900">Create Account</h1>
+      <p class="text-gray-500 mt-3">Join Airport Grande to manage your bookings with ease.</p>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10">
+
+      <form id="signup-form" class="space-y-5" onsubmit="handleSignup(event)">
+
+        <!-- Full Name -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+          <div class="input-wrapper">
+            <i data-lucide="user" class="input-icon w-4 h-4"></i>
+            <input type="text" id="fullName" required placeholder="e.g. Kwame Mensah"
+              class="input-field has-icon">
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+          <div class="input-wrapper">
+            <i data-lucide="mail" class="input-icon w-4 h-4"></i>
+            <input type="email" id="signupEmail" required placeholder="you@example.com"
+              class="input-field has-icon">
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+          <div class="input-wrapper">
+            <i data-lucide="phone" class="input-icon w-4 h-4"></i>
+            <input type="tel" id="signupPhone" required placeholder="+233 XX XXX XXXX"
+              class="input-field has-icon">
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Password *</label>
+          <div class="input-wrapper">
+            <i data-lucide="lock" class="input-icon w-4 h-4"></i>
+            <input type="password" id="signupPassword" required placeholder="Min. 8 characters"
+              class="input-field has-icon" style="padding-right:3rem;">
+            <button type="button" onclick="togglePassword('signupPassword', this)"
+              class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-amber-600 transition-colors">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+            </button>
+          </div>
+          <p class="text-xs text-gray-400 mt-1.5">Use at least 8 characters with a mix of letters and numbers.</p>
+        </div>
+
+        <!-- Status Message -->
+        <div id="signup-status" class="hidden rounded-2xl px-5 py-4 text-sm font-medium"></div>
+
+        <!-- Submit -->
+        <button type="submit" id="signup-btn"
+          class="cta-primary w-full text-white font-semibold py-4 rounded-3xl text-base transition-all hover:scale-[1.02] flex items-center justify-center gap-3 mt-2">
+          <span id="signup-btn-text">CREATE ACCOUNT</span>
+          <i data-lucide="arrow-right" class="w-5 h-5" id="signup-btn-icon"></i>
+          <svg id="signup-spinner" class="hidden animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="white" stroke-width="4"/>
+            <path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8v8z"/>
+          </svg>
+        </button>
+
+      </form>
+
+      <!-- OR Separator -->
+      <div class="relative my-8">
+        <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-100"></div></div>
+        <div class="relative flex justify-center text-sm"><span class="px-4 bg-white text-gray-400">Or sign up with</span></div>
+      </div>
+
+      <!-- Social Logins -->
+      <div class="grid grid-cols-2 gap-4">
+        <a href="/api/auth/google" class="flex items-center justify-center gap-3 px-4 py-3 border border-gray-200 rounded-2xl hover:bg-gray-50 transition-colors">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="w-5 h-5" alt="Google">
+          <span class="text-sm font-semibold text-gray-600">Google</span>
+        </a>
+        <a href="/api/auth/apple" class="flex items-center justify-center gap-3 px-4 py-3 border border-gray-200 rounded-2xl hover:bg-gray-50 transition-colors">
+          <i data-lucide="apple" class="w-5 h-5 text-black"></i>
+          <span class="text-sm font-semibold text-gray-600">Apple</span>
+        </a>
+      </div>
+
+      <p class="text-center text-sm text-gray-500 mt-6">
+        Already have an account?
+        <a href="login.html" class="text-amber-600 font-semibold hover:underline">Sign In</a>
+      </p>
+
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    function togglePassword(fieldId, btn) {
+      const field = document.getElementById(fieldId);
+      const isPassword = field.type === 'password';
+      field.type = isPassword ? 'text' : 'password';
+      btn.innerHTML = isPassword
+        ? '<i data-lucide="eye-off" class="w-4 h-4"></i>'
+        : '<i data-lucide="eye" class="w-4 h-4"></i>';
+      lucide.createIcons();
+    }
+
+    async function handleSignup(e) {
+      e.preventDefault();
+      const name     = document.getElementById('fullName').value.trim();
+      const email    = document.getElementById('signupEmail').value.trim();
+      const phone    = document.getElementById('signupPhone').value.trim();
+      const password = document.getElementById('signupPassword').value;
+
+      if (password.length < 8) {
+        showStatus('signup-status', 'Password must be at least 8 characters.', 'error');
+        return;
+      }
+
+      setLoading('signup', true);
+      hideStatus('signup-status');
+
+      try {
+        const res = await fetch('/api/auth/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, password }),
+        });
+        const data = await res.json();
+        
+        if (data.success) { 
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          showStatus('signup-status', 'Account created! Redirecting...', 'success');
+          setTimeout(() => window.location.href = 'client-dashboard.html', 1500);
+        } else {
+          showStatus('signup-status', data.message, 'error');
+        }
+      } catch (err) {
+        showStatus('signup-status', 'Could not connect. Please try again or call +233 20 135 1116.', 'error');
+      } finally {
+        setLoading('signup', false);
+      }
+    }
+
+    function setLoading(prefix, loading) {
+      const btn     = document.getElementById(`${prefix}-btn`);
+      const text    = document.getElementById(`${prefix}-btn-text`);
+      const icon    = document.getElementById(`${prefix}-btn-icon`);
+      const spinner = document.getElementById(`${prefix}-spinner`);
+      if (btn) btn.disabled = loading;
+      if (text) text.textContent = loading ? 'Please wait…' : (prefix === 'signup' ? 'CREATE ACCOUNT' : 'SIGN IN');
+      if (icon) icon.classList.toggle('hidden', loading);
+      if (spinner) spinner.classList.toggle('hidden', !loading);
+    }
+
+    function showStatus(id, msg, type) {
+      const el = document.getElementById(id);
+      el.textContent = msg;
+      el.className = `rounded-2xl px-5 py-4 text-sm font-medium ${
+        type === 'success'
+          ? 'bg-green-50 text-green-700 border border-green-200'
+          : 'bg-red-50 text-red-700 border border-red-200'
+      }`;
+      el.classList.remove('hidden');
+    }
+
+    function hideStatus(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

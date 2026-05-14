@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Airport Grande Luxury Lodge &amp; Apartments – Accra</title>
+    <meta name="description" content="Get in touch with Airport Grande Luxury Lodge &amp; Apartments in Accra. Call +233 20 135 1116, send us a message, or visit us at 137 Aviation Road, Airport Residential Area.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.25) 100%);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .contact-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        #site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+        }
+        #navbar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .nav-link {
+            color: #111827;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: #d97706;
+        }
+        .nav-link.active {
+            color: #d97706;
+            font-weight: 600;
+        }
+        .cta-primary {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.3);
+        }
+        .cta-primary:hover {
+            background: linear-gradient(135deg, #b45309, #92400e);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -5px rgba(217, 119, 6, 0.4);
+        }
+    </style>
+</head>
+<body class="smooth-scroll bg-gray-50">
+
+    <!-- HEADER -->
+    <header id="site-header">
+        <nav id="navbar" role="navigation" aria-label="Main navigation">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <a href="index.html" aria-label="Airport Grande Luxury Lodge &amp; Apartments">
+                            <span class="text-2xl md:text-3xl font-bold text-amber-700 tracking-tight">Airport Grande</span>
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center gap-x-7 text-sm font-medium">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="rooms.html" class="nav-link">Rooms</a>
+                        <a href="amenities.html" class="nav-link">Amenities</a>
+                        <a href="photos.html" class="nav-link">Gallery</a>
+                        <a href="#" class="nav-link active">Contact</a>
+
+                        <a href="booking.html"
+                           class="cta-primary text-white px-7 py-3.5 rounded-3xl font-semibold text-sm tracking-wide shadow-lg hover:shadow-xl transition-all ml-2">
+                            CHECK AVAILABILITY
+                        </a>
+                    </div>
+
+                    <!-- Mobile CTA + Hamburger -->
+                    <div class="md:hidden flex items-center gap-3">
+                        <a href="booking.html"
+                           class="cta-primary text-white px-4 py-2.5 rounded-2xl font-semibold text-xs tracking-wide shadow-md transition-all">
+                            Check Availability
+                        </a>
+                        <button id="mobile-menu-btn" class="text-gray-800 hover:text-amber-600 p-1.5" aria-label="Open menu" aria-expanded="false">
+                            <i data-lucide="menu" id="hamburger-icon" class="w-6 h-6"></i>
+                            <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white/97 backdrop-blur-xl border-t border-gray-100 shadow-2xl">
+                <div class="px-6 pt-5 pb-8 flex flex-col gap-1 text-base font-medium">
+                    <a href="index.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Home</a>
+                    <a href="rooms.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Rooms</a>
+                    <a href="amenities.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Amenities</a>
+                    <a href="photos.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Gallery</a>
+                    <a href="#" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Contact</a>
+
+                    <a href="rooms.html"
+                       class="mt-5 block w-full text-center cta-primary text-white py-4 rounded-3xl font-semibold text-base tracking-wide shadow-lg">
+                        CHECK AVAILABILITY NOW
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative h-screen min-h-[640px] flex items-center pt-20">
+        <div class="absolute inset-0">
+            <img src="images/YfxOa.jpg" 
+                 alt="Airport Grande Luxury Lodge entrance in Accra"
+                 class="w-full h-full object-cover">
+            <div class="hero-gradient absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-white/90 text-amber-700 px-5 py-2 rounded-3xl text-sm font-semibold mb-6">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    +233 20 135 1116 • 24/7 Reception
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white mb-6">
+                    Let's Make Your Stay Perfect
+                </h1>
+                <p class="text-lg sm:text-xl text-white/90">
+                    Whether you're planning a short business trip or a long stay in Accra, our team is ready to assist you.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="grid lg:grid-cols-12 gap-16">
+
+            <!-- CONTACT FORM -->
+            <div class="lg:col-span-7">
+                <div class="bg-white rounded-3xl shadow-xl p-10 md:p-14">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Send Us a Message</h2>
+                    <p class="text-base text-gray-600 mb-10">We'll get back to you within a few hours during business hours.</p>
+
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-8">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="name" required
+                                       class="w-full px-6 py-4 rounded-2xl border border-gray-300 focus:outline-none focus:border-amber-600 text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email" required
+                                       class="w-full px-6 py-4 rounded-2xl border border-gray-300 focus:outline-none focus:border-amber-600 text-base">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone"
+                                       class="w-full px-6 py-4 rounded-2xl border border-gray-300 focus:outline-none focus:border-amber-600 text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Stay Type</label>
+                                <select id="stay-type" 
+                                        class="w-full px-6 py-4 rounded-2xl border border-gray-300 focus:outline-none focus:border-amber-600 text-base">
+                                    <option value="">Select one...</option>
+                                    <option value="short">Short Stay (1-14 nights)</option>
+                                    <option value="long">Long Stay (15+ nights)</option>
+                                    <option value="monthly">Monthly / Extended Stay</option>
+                                    <option value="tour">Just a Tour / Viewing</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="6" required
+                                      class="w-full px-6 py-4 rounded-3xl border border-gray-300 focus:outline-none focus:border-amber-600 text-base resize-y"></textarea>
+                        </div>
+
+                        <button type="submit"
+                                class="w-full cta-primary text-white font-semibold py-6 rounded-3xl text-base sm:text-lg hover:scale-[1.02] transition-all">
+                            SEND MESSAGE
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- CONTACT INFO + MAP -->
+            <div class="lg:col-span-5 space-y-10">
+
+                <!-- Contact Details -->
+                <div class="bg-white rounded-3xl p-10 shadow-xl contact-card">
+                    <h3 class="text-2xl font-semibold mb-8">Get In Touch</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-5">
+                            <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-amber-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Our Location</p>
+                                <p class="text-base text-gray-600">
+                                    137 Aviation Road,<br>
+                                    Airport Residential Area<br>
+                                    (Near Bawaleshi / East Legon), Accra, Ghana
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-5">
+                            <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="phone" class="w-6 h-6 text-amber-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Call or WhatsApp</p>
+                                <a href="tel:+233201351116" class="text-2xl font-semibold text-amber-700 hover:text-amber-600 transition">+233 20 135 1116</a>
+                                <p class="text-sm text-gray-500 mt-1">24-hour reception</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-5">
+                            <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="mail" class="w-6 h-6 text-amber-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Email Us</p>
+                                <a href="/cdn-cgi/l/email-protection#f39a9d959cb3929a81839c81879481929d9796dd909c9e" class="text-base text-gray-600 hover:text-amber-700 transition"><span class="__cf_email__" data-cfemail="5831363e371839312a28372a2c3f2a39363c3d763b3735">[email&#160;protected]</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Embedded Google Map -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl contact-card">
+                    <div class="p-6 border-b">
+                        <h4 class="font-semibold flex items-center gap-2">
+                            <i data-lucide="map" class="w-5 h-5 text-amber-600"></i>
+                            Find Us on the Map
+                        </h4>
+                    </div>
+                    <div class="aspect-video">
+                        <!-- Embedded Google Map (replace with your exact coordinates if needed) -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.678!2d-0.178!3d5.605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9!2sAirport+Residential+Area!5e0!3m2!1sen!2sgh!4v1700000000000"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="p-6 text-xs text-gray-500 bg-gray-50">
+                        137 Aviation Road, Airport Residential Area, Accra • 10 minutes from Kotoka International Airport (KIA)
+                    </div>
+                </div>
+
+                <!-- Quick Info -->
+                <div class="bg-amber-50 rounded-3xl p-8">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="clock" class="w-8 h-8 text-amber-600 mt-1"></i>
+                        <div>
+                            <p class="font-semibold text-amber-900">24-Hour Reception</p>
+                            <p class="text-amber-800/80 text-base">We’re always here to welcome you — day or night.</p>
+                            <p class="mt-4 text-sm text-amber-700">Backup generator • Secure gated compound • Friendly staff ready to help</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Ready to Book Your Stay?</h2>
+            <p class="text-base sm:text-lg text-gray-300 mb-10">Our team will respond to your enquiry within a few hours.</p>
+            <a href="rooms.html" 
+               class="inline-flex items-center gap-4 bg-white text-gray-900 font-semibold px-12 py-6 rounded-3xl hover:bg-amber-100 transition text-base">
+                BROWSE AVAILABLE ROOMS &amp; APARTMENTS
+                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div>
+                    <span class="text-3xl font-bold text-amber-300 tracking-tight">Airport Grande</span>
+                    <p class="text-gray-400 mt-2 text-base">Luxury serviced apartments &amp; rooms in Accra.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Explore</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="rooms.html" class="hover:text-white">Rooms &amp; Floor Plans</a></li>
+                        <li><a href="amenities.html" class="hover:text-white">Amenities</a></li>
+                        <li><a href="photos.html" class="hover:text-white">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Residents &amp; Applicants</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="photos.html" class="hover:text-white">Photo Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Map &amp; Location</a></li>
+                        <li><a href="login.html" class="hover:text-white">Guest Portal</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Long-Stay Enquiry</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Connect With Us</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="https://www.facebook.com/p/Airport-Grande-Luxury-Lodge-Apts-100070291329694/" target="_blank" class="hover:text-white">Facebook</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Contact</h4>
+                    <p class="text-sm text-gray-400">+233 20 135 1116<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="91f8fff7fed1f0f8e3e1fee3e5f6e3f0fff5f4bff2fefc">[email&#160;protected]</a></p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-16 pt-8 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2026 Airport Grande Luxury Lodge &amp; Apartments. All Rights Reserved.</p>
+                <div class="flex gap-6 mt-6 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy</a>
+                    <a href="#" class="hover:text-white">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden', !isOpen);
+            closeIcon.classList.toggle('hidden', isOpen);
+            mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        // Form submission handler
+        async function handleContactSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'SENDING...';
+            btn.disabled = true;
+
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            alert('Thank you for your message! Our team will get back to you shortly.');
+            e.target.reset();
+            btn.textContent = originalText;
+            btn.disabled = false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amenities | Airport Grande Luxury Lodge &amp; Apartments – Accra</title>
+    <meta name="description" content="Discover the full range of amenities at Airport Grande Luxury Lodge &amp; Apartments in Accra. Free high-speed Wi-Fi, daily breakfast service, laundry, 24-hour security, fitness centre, free parking, backup generator and more.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.25) 100%);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .amenity-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .amenity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        #site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+        }
+        #navbar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .nav-link {
+            color: #111827;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: #d97706;
+        }
+        .nav-link.active {
+            color: #d97706;
+            font-weight: 600;
+        }
+        .cta-primary {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.3);
+        }
+        .cta-primary:hover {
+            background: linear-gradient(135deg, #b45309, #92400e);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -5px rgba(217, 119, 6, 0.4);
+        }
+    </style>
+</head>
+<body class="smooth-scroll bg-gray-50">
+
+    <!-- HEADER -->
+    <header id="site-header">
+        <nav id="navbar" role="navigation" aria-label="Main navigation">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <a href="index.html" aria-label="Airport Grande Luxury Lodge &amp; Apartments">
+                            <span class="text-2xl md:text-3xl font-bold text-amber-700 tracking-tight">Airport Grande</span>
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center gap-x-7 text-sm font-medium">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="rooms.html" class="nav-link">Rooms</a>
+                        <a href="#" class="nav-link active">Amenities</a>
+                        <a href="photos.html" class="nav-link">Gallery</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
+                        <a href="login.html" class="nav-link">Sign In</a>
+
+                        <a href="booking.html"
+                           class="cta-primary text-white px-7 py-3.5 rounded-3xl font-semibold text-sm tracking-wide shadow-lg hover:shadow-xl transition-all ml-2">
+                            CHECK AVAILABILITY
+                        </a>
+                    </div>
+
+                    <!-- Mobile CTA + Hamburger -->
+                    <div class="md:hidden flex items-center gap-3">
+                        <a href="booking.html"
+                           class="cta-primary text-white px-4 py-2.5 rounded-2xl font-semibold text-xs tracking-wide shadow-md transition-all">
+                            Check Availability
+                        </a>
+                        <button id="mobile-menu-btn" class="text-gray-800 hover:text-amber-600 p-1.5" aria-label="Open menu" aria-expanded="false">
+                            <i data-lucide="menu" id="hamburger-icon" class="w-6 h-6"></i>
+                            <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white/97 backdrop-blur-xl border-t border-gray-100 shadow-2xl">
+                <div class="px-6 pt-5 pb-8 flex flex-col gap-1 text-base font-medium">
+                    <a href="index.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Home</a>
+                    <a href="rooms.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Rooms</a>
+                    <a href="#" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Amenities</a>
+                    <a href="photos.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Gallery</a>
+                    <a href="contact.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Contact</a>
+                    <a href="login.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Sign In</a>
+
+                    <a href="rooms.html"
+                       class="mt-5 block w-full text-center cta-primary text-white py-4 rounded-3xl font-semibold text-base tracking-wide shadow-lg">
+                        CHECK AVAILABILITY NOW
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative h-screen min-h-[640px] flex items-center pt-20">
+        <div class="absolute inset-0">
+            <img src="images/amenities.png" 
+                 alt="Fitness centre and garden at Airport Grande Luxury Lodge &amp; Apartments, Accra"
+                 class="w-full h-full object-cover">
+            <div class="hero-gradient absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-white/90 text-amber-700 px-5 py-2 rounded-3xl text-sm font-semibold mb-6">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    EVERYTHING YOU NEED FOR A COMFORTABLE STAY
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white mb-6">
+                    Home-Like Comfort<br>with Premium Amenities
+                </h1>
+                <p class="text-lg sm:text-xl text-white/90">
+                    From daily breakfast delivered to your door to 24-hour security and a fully equipped fitness centre — we take care of every detail so you can relax.
+                </p>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce">
+            <i data-lucide="chevron-down" class="w-9 h-9"></i>
+        </div>
+    </section>
+
+    <!-- AMENITIES GRID -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">What We Offer</h2>
+                <p class="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+                    All amenities are included in your stay — no hidden fees. Designed for both short-term business travelers and long-stay guests.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="wifi" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Free High-Speed Wi-Fi</h3>
+                    <p class="text-base leading-relaxed text-gray-600">Strong and reliable connection throughout the entire property — perfect for work or streaming.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="car" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Free Private Parking</h3>
+                    <p class="text-base leading-relaxed text-gray-600">Secure on-site parking with 24-hour surveillance. No need to worry about your vehicle.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="dumbbell" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Fitness Centre</h3>
+                    <p class="text-base leading-relaxed text-gray-600">Well-equipped gym with cardio machines, weights, and yoga space. Stay active during your stay.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="utensils" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Daily Breakfast Service</h3>
+                    <p class="text-base leading-relaxed text-gray-600">Fresh continental or local Ghanaian breakfast delivered to your room between 6:00 AM – 10:00 AM.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="shirt" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Laundry Service</h3>
+                    <p class="text-base leading-relaxed text-gray-600">Professional laundry service included twice per week for all guests.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="sparkles" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Regular Housekeeping</h3>
+                    <p class="text-base leading-relaxed text-gray-600">Full apartment/room cleaning three times per week. Fresh linens and towels provided.</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="shield" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">24-Hour Security &amp; Backup Generator</h3>
+                    <p class="text-base leading-relaxed text-gray-600">Gated property with professional security team and full power backup for uninterrupted comfort.</p>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="tree" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Terrace &amp; Garden</h3>
+                    <p class="text-base leading-relaxed text-gray-600">Peaceful outdoor spaces to relax, unwind, or enjoy fresh air in a quiet residential setting.</p>
+                </div>
+
+                <!-- Card 9 - In-room extras -->
+                <div class="amenity-card bg-white border border-gray-100 p-10 rounded-3xl text-center">
+                    <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="coffee" class="w-10 h-10 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">In-Room Comforts</h3>
+                    <p class="text-base leading-relaxed text-gray-600">Air conditioning, satellite TV, large fridge, coffee/tea making facilities, work desk, and en-suite bathrooms in every unit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IN-ROOM AMENITIES -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">In Every Room &amp; Apartment</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <ul class="space-y-6 text-base">
+                    <li class="flex gap-4"><i data-lucide="check" class="w-6 h-6 text-amber-600 mt-0.5"></i> Individually controlled air conditioning</li>
+                    <li class="flex gap-4"><i data-lucide="check" class="w-6 h-6 text-amber-600 mt-0.5"></i> Satellite / Smart TV with international channels</li>
+                    <li class="flex gap-4"><i data-lucide="check" class="w-6 h-6 text-amber-600 mt-0.5"></i> Private en-suite bathroom with hot shower</li>
+                    <li class="flex gap-4"><i data-lucide="check" class="w-6 h-6 text-amber-600 mt-0.5"></i> Large refrigerator &amp; coffee/tea station</li>
+                    <li class="flex gap-4"><i data-lucide="check" class="w-6 h-6 text-amber-600 mt-0.5"></i> Work desk and comfortable seating</li>
+                </ul>
+                <ul class="space-y-6 text-base">
+                    <li class="flex gap-4"><i data-lucide="check" class="w-6 h-6 text-amber-600 mt-0.5"></i> High-quality bedding and towels</li>
+                    <li class="flex gap-4"><i data-lucide="check" class="w-6 h-6 text-amber-600 mt-0.5"></i> Hairdryer and basic toiletries</li>
+                    <li class="flex gap-4"><i data-lucide="check" class="w-6 h-6 text-amber-600 mt-0.5"></i> Iron &amp; ironing board (on request)</li>
+                    <li class="flex gap-4"><i data-lucide="check" class="w-6 h-6 text-amber-600 mt-0.5"></i> 24-hour reception &amp; concierge support</li>
+                    <li class="flex gap-4"><i data-lucide="check" class="w-6 h-6 text-amber-600 mt-0.5"></i> Shared kitchenette access (limited)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-28 bg-gradient-to-br from-gray-900 to-black text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-none mb-8">
+                Ready for a Comfortable Stay in Accra?
+            </h2>
+            <p class="text-base sm:text-lg text-gray-300 mb-12 max-w-lg mx-auto">
+                All these amenities are included whether you stay for one night or several months.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="booking.html"
+                           class="cta-primary text-white text-base sm:text-lg font-semibold px-16 py-8 rounded-3xl inline-flex items-center justify-center gap-4">
+                    BROWSE ROOMS &amp; APARTMENTS
+                    <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                </a>
+                <a href="contact.html" 
+                   class="border-2 border-white/70 hover:border-white text-white text-base sm:text-lg font-semibold px-16 py-8 rounded-3xl transition">
+                    Speak with Our Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div>
+                    <span class="text-3xl font-bold text-amber-300 tracking-tight">Airport Grande</span>
+                    <p class="text-gray-400 mt-2 text-base">Luxury serviced apartments &amp; rooms in Accra.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Explore</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="rooms.html" class="hover:text-white">Rooms &amp; Floor Plans</a></li>
+                        <li><a href="amenities.html" class="hover:text-white">Amenities</a></li>
+                        <li><a href="photos.html" class="hover:text-white">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Residents &amp; Applicants</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="photos.html" class="hover:text-white">Photo Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Map &amp; Location</a></li>
+                        <li><a href="login.html" class="hover:text-white">Guest Portal</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Long-Stay Enquiry</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Connect With Us</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="https://www.facebook.com/p/Airport-Grande-Luxury-Lodge-Apts-100070291329694/" target="_blank" class="hover:text-white">Facebook</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Contact</h4>
+                    <p class="text-sm text-gray-400">+233 20 135 1116<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b2a22393b24393f2c392a252f2e0b2c262a222765282426">[email&#160;protected]</a></p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-16 pt-8 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2026 Airport Grande Luxury Lodge &amp; Apartments. All Rights Reserved.</p>
+                <div class="flex gap-6 mt-6 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy</a>
+                    <a href="#" class="hover:text-white">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden', !isOpen);
+            closeIcon.classList.toggle('hidden', isOpen);
+            mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+    </script>
+</body>
+</html>

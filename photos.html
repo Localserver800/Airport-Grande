@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Airport Grande Luxury Lodge &amp; Apartments – Accra</title>
+    <meta name="description" content="Photo gallery of Airport Grande Luxury Lodge &amp; Apartments in Accra. View our spacious 2-bedroom apartments, standard rooms, modern kitchens, living areas, garden, and facilities.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.25) 100%);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .photo-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+        .photo-card:hover img {
+            transform: scale(1.08);
+        }
+        .photo-card:hover .overlay {
+            opacity: 1;
+        }
+        #site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+        }
+        #navbar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .nav-link {
+            color: #111827;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: #d97706;
+        }
+        .nav-link.active {
+            color: #d97706;
+            font-weight: 600;
+        }
+        .cta-primary {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.3);
+        }
+        .cta-primary:hover {
+            background: linear-gradient(135deg, #b45309, #92400e);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -5px rgba(217, 119, 6, 0.4);
+        }
+    </style>
+</head>
+<body class="smooth-scroll bg-gray-50">
+
+    <!-- HEADER -->
+    <header id="site-header">
+        <nav id="navbar" role="navigation" aria-label="Main navigation">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <a href="index.html" aria-label="Airport Grande Luxury Lodge &amp; Apartments">
+                            <span class="text-2xl md:text-3xl font-bold text-amber-700 tracking-tight">Airport Grande</span>
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center gap-x-7 text-sm font-medium">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="rooms.html" class="nav-link">Rooms</a>
+                        <a href="amenities.html" class="nav-link">Amenities</a>
+                        <a href="#" class="nav-link active">Gallery</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
+                        <a href="login.html" class="nav-link">Sign In</a>
+
+                        <a href="booking.html"
+                           class="cta-primary text-white px-7 py-3.5 rounded-3xl font-semibold text-sm tracking-wide shadow-lg hover:shadow-xl transition-all ml-2">
+                            CHECK AVAILABILITY
+                        </a>
+                    </div>
+
+                    <!-- Mobile CTA + Hamburger -->
+                    <div class="md:hidden flex items-center gap-3">
+                        <a href="booking.html"
+                           class="cta-primary text-white px-4 py-2.5 rounded-2xl font-semibold text-xs tracking-wide shadow-md transition-all">
+                            Check Availability
+                        </a>
+                        <button id="mobile-menu-btn" class="text-gray-800 hover:text-amber-600 p-1.5" aria-label="Open menu" aria-expanded="false">
+                            <i data-lucide="menu" id="hamburger-icon" class="w-6 h-6"></i>
+                            <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white/97 backdrop-blur-xl border-t border-gray-100 shadow-2xl">
+                <div class="px-6 pt-5 pb-8 flex flex-col gap-1 text-base font-medium">
+                    <a href="index.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Home</a>
+                    <a href="rooms.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Rooms</a>
+                    <a href="amenities.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Amenities</a>
+                    <a href="#" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Gallery</a>
+                    <a href="contact.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Contact</a>
+                    <a href="login.html" class="mobile-nav-link py-3.5 border-b border-gray-100 text-gray-800 hover:text-amber-600 transition-colors">Sign In</a>
+
+                    <a href="rooms.html"
+                       class="mt-5 block w-full text-center cta-primary text-white py-4 rounded-3xl font-semibold text-base tracking-wide shadow-lg">
+                        CHECK AVAILABILITY NOW
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative h-screen min-h-[640px] flex items-center pt-20">
+        <div class="absolute inset-0">
+            <img src="images/RSC8s.jpg" 
+                 alt="Beautiful exterior and garden at Airport Grande Luxury Apartments Accra"
+                 class="w-full h-full object-cover">
+            <div class="hero-gradient absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white mb-6">
+                    Live the Look
+                </h1>
+                <p class="text-lg sm:text-xl text-white/90">
+                    Step inside our fully furnished serviced apartments and rooms in the peaceful Airport Residential Area, Accra.
+                </p>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce">
+            <i data-lucide="chevron-down" class="w-9 h-9"></i>
+        </div>
+    </section>
+
+    <!-- GALLERY GRID -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Photo 1 -->
+                <div class="photo-card group rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative">
+                        <img src="images/gallery 1.jpg" 
+                             alt="Exterior view of Airport Grande Luxury Lodge &amp; Apartments" 
+                             class="w-full h-80 object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+                            <div class="text-white">
+                                <p class="text-sm font-medium">Property Exterior</p>
+                                <p class="text-2xl font-semibold">Modern &amp; Welcoming</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="photo-card group rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative">
+                        <img src="images/gallery 2.jpg" 
+                             alt="Spacious living room in 2-bedroom apartment" 
+                             class="w-full h-80 object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+                            <div class="text-white">
+                                <p class="text-sm font-medium">2-Bedroom Apartment</p>
+                                <p class="text-2xl font-semibold">Open-Plan Living Area</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="photo-card group rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative">
+                        <img src="images/gallery 3.jpg" 
+                             alt="Fully equipped modern kitchen" 
+                             class="w-full h-80 object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+                            <div class="text-white">
+                                <p class="text-sm font-medium">Kitchen</p>
+                                <p class="text-2xl font-semibold">Fully Equipped</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="photo-card group rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative">
+                        <img src="images/gallery 4.jpg" 
+                             alt="Master bedroom with comfortable queen bed" 
+                             class="w-full h-80 object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+                            <div class="text-white">
+                                <p class="text-sm font-medium">Bedroom</p>
+                                <p class="text-2xl font-semibold">Restful &amp; Spacious</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="photo-card group rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative">
+                        <img src="images/gallery 5.jpg" 
+                             alt="Bathroom with modern fixtures" 
+                             class="w-full h-80 object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+                            <div class="text-white">
+                                <p class="text-sm font-medium">Bathroom</p>
+                                <p class="text-2xl font-semibold">Clean &amp; Modern</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="photo-card group rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative">
+                        <img src="images/gallery 6.jpg" 
+                             alt="Garden and terrace area" 
+                             class="w-full h-80 object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+                            <div class="text-white">
+                                <p class="text-sm font-medium">Outdoor Space</p>
+                                <p class="text-2xl font-semibold">Terrace &amp; Garden</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 7 -->
+                <div class="photo-card group rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative">
+                        <img src="images/gallery 7.jpg" 
+                             alt="Dining area in apartment" 
+                             class="w-full h-80 object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+                            <div class="text-white">
+                                <p class="text-sm font-medium">Dining Area</p>
+                                <p class="text-2xl font-semibold">Perfect for Families</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 8 -->
+                <div class="photo-card group rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative">
+                        <img src="images/gallery 8.jpg" 
+                             alt="Fitness centre equipment" 
+                             class="w-full h-80 object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+                            <div class="text-white">
+                                <p class="text-sm font-medium">Fitness Centre</p>
+                                <p class="text-2xl font-semibold">Stay Active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 9 -->
+                <div class="photo-card group rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative">
+                        <img src="images/gallery 9.jpg" 
+                             alt="Swimming pool area" 
+                             class="w-full h-80 object-cover transition-transform duration-700">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-opacity duration-300 flex items-end p-8">
+                            <div class="text-white">
+                                <p class="text-sm font-medium">Fitness Centre</p>
+                                <p class="text-2xl font-semibold">Stay Active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-28 bg-gradient-to-br from-gray-900 to-black text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-none mb-8">
+                Experience Airport Grande Yourself
+            </h2>
+            <p class="text-base sm:text-lg text-gray-300 mb-12">
+                These photos show only a glimpse. Come and see the warmth and comfort in person.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="booking.html"
+                           class="cta-primary text-white text-base sm:text-lg font-semibold px-16 py-8 rounded-3xl inline-flex items-center justify-center gap-4">
+                    BROWSE AVAILABLE UNITS
+                    <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                </a>
+                <a href="contact.html" 
+                   class="border-2 border-white/70 hover:border-white text-white text-base sm:text-lg font-semibold px-16 py-8 rounded-3xl transition">
+                    Schedule a Tour
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div>
+                    <span class="text-3xl font-bold text-amber-300 tracking-tight">Airport Grande</span>
+                    <p class="text-gray-400 mt-2 text-base">Luxury serviced apartments &amp; rooms in Accra.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Explore</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="rooms.html" class="hover:text-white">Rooms &amp; Floor Plans</a></li>
+                        <li><a href="amenities.html" class="hover:text-white">Amenities</a></li>
+                        <li><a href="photos.html" class="hover:text-white">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Residents &amp; Applicants</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="photos.html" class="hover:text-white">Photo Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Map &amp; Location</a></li>
+                        <li><a href="login.html" class="hover:text-white">Guest Portal</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Long-Stay Enquiry</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Connect With Us</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="https://www.facebook.com/p/Airport-Grande-Luxury-Lodge-Apts-100070291329694/" target="_blank" class="hover:text-white">Facebook</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-base">Contact</h4>
+                    <p class="text-sm text-gray-400">+233 20 135 1116<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b2a22393b24393f2c392a252f2e0b2c262a222765282426">[email&#160;protected]</a></p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-16 pt-8 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2026 Airport Grande Luxury Lodge &amp; Apartments. All Rights Reserved.</p>
+                <div class="flex gap-6 mt-6 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy</a>
+                    <a href="#" class="hover:text-white">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden', !isOpen);
+            closeIcon.classList.toggle('hidden', isOpen);
+            mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+    </script>
+</body>
+</html>
